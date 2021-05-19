@@ -18,8 +18,8 @@ DROP TABLE IF EXISTS department;
  id INTEGER AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
-    role_id INT,
-    manager_id INT  
+    role_id INT NOT NULL,  
+    manager_id INT NOT NULL 
 );
 
 

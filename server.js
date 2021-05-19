@@ -46,7 +46,7 @@ const questions = [{
     {
         type: 'input',
         name: 'addNewRole',
-        message: 'What Is The name Of The New Role?',
+        message: 'What Is The Name Of The New Role?',
         when: (answers) => {
             if (answers.options == 'Add A Role') {
                 return true
@@ -59,7 +59,126 @@ const questions = [{
     {
         type: 'input',
         name: 'addNewEmployee',
-        message: 'What Is The Name Of The New Employee?',
+        message: 'What Is The First Name Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'getNewLastName',
+        message: 'What Is The Last Name Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'getNewFirstName',
+        message: 'What Is The First Name Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'getNewRoleId',
+        message: 'What Is The Role Id Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'getNewManagerId',
+        message: 'What Is The Manager Id Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+];
+const newEmployeeQuestions = [{
+
+
+        type: 'input',
+        name: 'addNewEmployee',
+        message: 'What Is The First Name Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'getNewLastName',
+        message: 'What Is The Last Name Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'getNewFirstName',
+        message: 'What Is The First Name Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'getNewRoleId',
+        message: 'What Is The Role Id Of The New Employee?',
+        when: (answers) => {
+            if (answers.options == 'Add An Employee') {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'getNewManagerId',
+        message: 'What Is The Manager Id Of The New Employee?',
         when: (answers) => {
             if (answers.options == 'Add An Employee') {
                 return true
@@ -73,6 +192,7 @@ const questions = [{
 
 
 function myAnswers(answers) {
+    // answers.newEmployeeAnswers
     switch (answers.options) {
         case 'View All Departments':
             db.promise()
@@ -124,14 +244,14 @@ function myAnswers(answers) {
             break;
 
         case 'Add A Employee':
-            console.log('Add A Employee')
             db.promise()
-                .query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES('${answers.addNewEmployee}')`)
+                .query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES('${answers.getNewFirstName}', '${answers.getNewLastName}', '${answers.getNewRoleId}', '${answers.getNewManagerId}')`)
                 .then(([rows, fields]) => {
                     console.log('added an employee')
-
                 })
             break;
+
+
 
         case 'Update An Employee Role':
             console.log('Update An Employee Role')
@@ -143,10 +263,51 @@ function myAnswers(answers) {
     }
 }
 
+function lookAtAnswers(answers) {
+    console.log(answers)
+    return answers
+}
+
+function checkAdditionalQuestions(answers) {
+    switch (answers.options) {
+
+
+        case 'Add A Role':
+            console.log('Add A Role')
+
+            break;
+
+        case 'Add A Employee':
+            inquirer
+                .prompt(newEmployeeQuestions)
+                .then(
+                    (newEmployeeAnswers) => {
+                        answers.newEmployeeAnswers = newEmployeeAnswers
+                    }
+                )
+            break;
+
+
+        case 'Update An Employee Role':
+            console.log('Update An Employee Role')
+            break;
+
+
+        default:
+            break;
+    }
+    return answers
+
+}
+
+
 function employeeTracker() {
     inquirer
         .prompt(questions)
-        .then(myAnswers)
+        .then(lookAtAnswers)
+        .then(checkAdditionalQuestions)
+
+    .then(myAnswers)
 
 }
 
