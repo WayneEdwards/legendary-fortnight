@@ -71,8 +71,8 @@ const questions = [{
 
     {
         type: 'input',
-        name: 'getNewLastName',
-        message: 'What Is The Last Name Of The New Employee?',
+        name: 'getNewFirstName',
+        message: 'What Is The First Name Of The New Employee?',
         when: (answers) => {
             if (answers.options == 'Add An Employee') {
                 return true
@@ -84,8 +84,8 @@ const questions = [{
 
     {
         type: 'input',
-        name: 'getNewFirstName',
-        message: 'What Is The First Name Of The New Employee?',
+        name: 'getNewLastName',
+        message: 'What Is The Last Name Of The New Employee?',
         when: (answers) => {
             if (answers.options == 'Add An Employee') {
                 return true

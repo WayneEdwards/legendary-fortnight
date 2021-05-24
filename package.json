@@ -2,19 +2,22 @@
     "name": "employee_tracker",
     "version": "1.0.0",
     "description": "A CLI interface to track employyes and all info therein.",
-    "main": "server.js",
+    "main": "app.js",
     "dependencies": {
+        "chalk": "^4.1.1",
         "console.table": "^0.10.0",
         "express": "^4.17.1",
+        "figlet": "^1.5.0",
         "inquirer": "^8.0.0",
-        "mysql2": "^2.2.5"
+        "mysql2": "^2.2.5",
+        "promise": "^8.1.0"
     },
     "devDependencies": {
         "jest": "^26.6.3"
     },
     "scripts": {
         "test": "jest",
-        "start": "node server.js"
+        "start": "node app.js"
     },
     "repository": {
         "type": "git",
