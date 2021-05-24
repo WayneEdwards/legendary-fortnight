@@ -1,29 +1,29 @@
-DROP DATABASE IF EXISTS `employee_tracker2`;
-CREATE DATABASE `employee_tracker2`;
-USE `employee_tracker2`;
+DROP DATABASE IF EXISTS employee_tracker2;
+CREATE DATABASE employee_tracker2;
+USE employee_tracker2;
 
 
-CREATE TABLE `department` (
-	`id` int AUTO_INCREMENT NOT NULL,
-	`name` varchar(30),
-	PRIMARY KEY (`id`)
+CREATE TABLE department (
+	id INTEGER AUTO_INCREMENT NOT NULL,
+	name VARCHAR(30),
+	PRIMARY KEY (id)
 );
-INSERT INTO `department` (`name`) VALUES('Sales');
-INSERT INTO `department` (`name`) VALUES('Engineering');
-INSERT INTO `department` (`name`) VALUES('Finance');
-INSERT INTO `department` (`name`) VALUES('Legal');
+INSERT INTO department (name) VALUES('Sales');
+INSERT INTO department (name) VALUES('Engineering');
+INSERT INTO department (name) VALUES('Finance');
+INSERT INTO department (name) VALUES('Legal');
 
 
-CREATE TABLE `role` (
-	`id` int AUTO_INCREMENT NOT NULL,
-	`title` varchar(30),
-	`salary` decimal(6),
-	`department_id` int,
-	PRIMARY KEY (`id`),
-	FOREIGN KEY (`department_id`) REFERENCES `department` (`id`)
+CREATE TABLE role (
+	id INTEGER AUTO_INCREMENT NOT NULL,
+	title VARCHAR(30),
+	salary DECIMAL(6),
+	department_id INTEGER,
+	PRIMARY KEY (id),
+	FOREIGN KEY (department_id) REFERENCES department (id)
 );
 
-INSERT INTO `role` (`title`,`salary`,`department_id`)
+INSERT INTO role (title, salary, department_id)
  VALUES
  ('Sales Lead',  85000, 1),
 ('Accountant',  85000, 3),
@@ -36,18 +36,18 @@ INSERT INTO `role` (`title`,`salary`,`department_id`)
  
 
 
-CREATE TABLE `employee` (
-	`id` int AUTO_INCREMENT NOT NULL,
-	`first_name` varchar(30) NOT NULL,
-	`last_name` varchar(30) NOT NULL,
-	`role_id` int,
-	`manager_id` int,
+CREATE TABLE employee (
+	id int AUTO_INCREMENT NOT NULL,
+	first_name VARCHAR(30) NOT NULL,
+	last_name VARCHAR(30) NOT NULL,
+	role_id INTEGER,
+	manager_id INTEGER,
 	PRIMARY KEY (id),
-	FOREIGN KEY (`role_id`) REFERENCES `role` (`id`),
-	FOREIGN KEY (`manager_id`) REFERENCES `employee` (`id`)
+	FOREIGN KEY (role_id) REFERENCES role (id),
+	FOREIGN KEY (manager_id) REFERENCES employee (id)
 );
 
-INSERT INTO `employee` (`first_name`,`last_name`,`role_id`,`manager_id`)
+INSERT INTO employee (first_name,last_name, role_id, manager_id)
  VALUES
     ('Mary','Smith',1,null),
     ('Jane','Doe',2,null),

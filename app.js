@@ -45,7 +45,7 @@ const runEmployeeTracker = async() => {
                     "Add Role",
                     "Add Employee",
                     "View Departments",
-                    "View Roles",
+                    "View Role",
                     "View Employees",
                     "Update Employee Role",
                     extStr
