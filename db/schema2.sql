@@ -22,8 +22,18 @@ CREATE TABLE `role` (
 	PRIMARY KEY (`id`),
 	FOREIGN KEY (`department_id`) REFERENCES `department` (`id`)
 );
-INSERT INTO `role` (`title`,`salary`,`department_id`) VALUES('Sales Lead',  85000, 1);
-INSERT INTO `role` (`title`,`salary`,`department_id`) VALUES('Accountant',  85000, 3);
+
+INSERT INTO `role` (`title`,`salary`,`department_id`)
+ VALUES
+ ('Sales Lead',  85000, 1),
+('Accountant',  85000, 3),
+('Salesperson', 80000, 1),
+ ('Lead Engineer', 150000, 2),
+ ('Software Engineer', 120000, 2),
+ ('Account Lead', 150000, 3),
+ ('Legal Team Lead', 250000, 4),
+ ('Lawyer', 190000, 4);
+ 
 
 
 CREATE TABLE `employee` (
@@ -36,7 +46,15 @@ CREATE TABLE `employee` (
 	FOREIGN KEY (`role_id`) REFERENCES `role` (`id`),
 	FOREIGN KEY (`manager_id`) REFERENCES `employee` (`id`)
 );
+
 INSERT INTO `employee` (`first_name`,`last_name`,`role_id`,`manager_id`)
  VALUES
- ('Mary','Smith',1,null);
-('Jane','Doe',2,null);
+    ('Mary','Smith',1,null),
+    ('Jane','Doe',2,null),
+    ('Ashley', 'Rodriguez',2,2),
+    ('Kevin', 'Tupik',2,1),
+    ('Malia', 'Brown',3,1),
+    ('Han', 'Solo',3,2), 
+    ('Sarah', 'Lourd',4,2),
+    ('Tom ', 'Brown',4,1); 
+
