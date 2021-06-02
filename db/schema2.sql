@@ -25,8 +25,8 @@ CREATE TABLE role (
 
 INSERT INTO role (title, salary, department_id)
  VALUES
- ('Sales Lead',  85000, 1),
-('Accountant',  85000, 3),
+ ('Sales Lead', 85000, 1),
+('Accountant', 85000, 3),
 ('Salesperson', 80000, 1),
  ('Lead Engineer', 150000, 2),
  ('Software Engineer', 120000, 2),
@@ -37,7 +37,7 @@ INSERT INTO role (title, salary, department_id)
 
 
 CREATE TABLE employee (
-	id int AUTO_INCREMENT NOT NULL,
+	id INTEGER AUTO_INCREMENT NOT NULL,
 	first_name VARCHAR(30) NOT NULL,
 	last_name VARCHAR(30) NOT NULL,
 	role_id INTEGER,

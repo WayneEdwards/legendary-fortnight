@@ -22,6 +22,8 @@ const connection = mysql.createConnection({
     database: 'employee_tracker2'
 });
 
+
+
 /*
 connection.query(
     'SELECT * FROM `employee`',
@@ -45,7 +47,7 @@ const runEmployeeTracker = async() => {
                     "Add Role",
                     "Add Employee",
                     "View Departments",
-                    "View Role",
+                    "View Roles",
                     "View Employees",
                     "Update Employee Role",
                     extStr
@@ -260,6 +262,7 @@ const runEmployeeTracker = async() => {
                     connection.query(
                             'SELECT * FROM role',
                             function(err, results, fields) {
+
                                 let resultsTbl = cTable.getTable(results)
                                 console.log(`\n${resultsTbl}`);
                                 restart()
@@ -293,6 +296,7 @@ const runEmployeeTracker = async() => {
                         function(err, results, fields) {
                             let resultsTbl = cTable.getTable(results)
                             console.log(`\n${resultsTbl}`);
+                            console.log(err);
                             restart()
                         }
                     )
