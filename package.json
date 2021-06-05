@@ -1,7 +1,7 @@
 {
-    "name": "employee_tracker",
+    "name": "employee_tracker2",
     "version": "1.0.0",
-    "description": "A CLI interface to track employyes and all info therein.",
+    "description": "A CLI interface to track employees and all info therein.",
     "main": "app.js",
     "dependencies": {
         "chalk": "^4.1.1",
