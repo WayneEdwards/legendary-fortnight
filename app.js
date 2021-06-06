@@ -289,9 +289,9 @@ const runEmployeeTracker = () => {
                         .catch((err) => {
                             console.log(err);
                         })
-                        .then(() => {
-                            connection.end();
-                        });
+                        //     .then(() => {
+                        //         connection.end();
+                        //     });
                     restart();
 
                     break;
@@ -354,6 +354,7 @@ const runEmployeeTracker = () => {
                 case extStr:
                     // code here
                     console.log("Bye!!");
+                    connection.end();
                     process.exit();
 
                     // default:
