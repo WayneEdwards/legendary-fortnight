@@ -12,7 +12,7 @@ A CLI interface to track employees and all info therein.
 
 ## Video Walkthrough Link
 
-[title](https://drive.google.com/file/d/19cMRyjAwNDKI0OyHhbbwXUHspOpjEMBi/view?usp=sharing)
+[Video Walkthrough](https://drive.google.com/file/d/19cMRyjAwNDKI0OyHhbbwXUHspOpjEMBi/view?usp=sharing)
 
 ## USER STORY
 
