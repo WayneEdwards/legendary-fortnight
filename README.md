@@ -6,6 +6,10 @@
 
 A CLI interface to track employees and all info therein.
 
+### Screenshot
+![Screenshot Of Employee Manager App](https://user-images.githubusercontent.com/71949043/120944329-c2551400-c6e8-11eb-8e22-b1bead87605a.png)
+
+
 ## Video Walkthrough Link
 
 [title](https://drive.google.com/file/d/19cMRyjAwNDKI0OyHhbbwXUHspOpjEMBi/view?usp=sharing)
